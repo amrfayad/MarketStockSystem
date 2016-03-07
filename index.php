@@ -37,7 +37,7 @@ and open the template in the editor.
         }
         else
         {
-            include './view/getPrice.php';
+            include './view/Login.php';
         }
        
         if(isset($includes))
