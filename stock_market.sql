@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 09, 2016 at 06:32 PM
+-- Generation Time: Mar 09, 2016 at 09:26 PM
 -- Server version: 5.5.47-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.14
 
@@ -38,21 +38,25 @@ CREATE TABLE IF NOT EXISTS `alarm` (
   KEY `sh_id` (`sh_id`),
   KEY `user_id` (`user_id`),
   KEY `user_id_2` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 --
 -- Dumping data for table `alarm`
 --
 
 INSERT INTO `alarm` (`alarm_id`, `sh_id`, `user_id`, `is_enabled`, `direction`, `price`, `last_trigered`) VALUES
-(8, 1, 1, 1, 1, 100, '2016-03-07'),
+(8, 1, 1, 0, 0, 100, '2016-03-07'),
 (9, 1, 1, 1, 1, 100, NULL),
 (10, 1, 1, 1, 1, 100, NULL),
-(11, 1, 1, 1, 1, 100, NULL),
+(11, 1, 1, 0, 1, 100, NULL),
 (12, 1, 1, 1, 1, 100, NULL),
-(13, 1, 1, 1, 1, 100, NULL),
+(13, 1, 1, 0, 0, 100, NULL),
 (14, 1, 1, 1, 1, 100, NULL),
-(15, 1, 1, 1, 1, 100, NULL);
+(15, 1, 1, 1, 1, 100, NULL),
+(16, 3, 1, 1, 1, 34, NULL),
+(17, 6, 1, 1, 0, 45, NULL),
+(18, 4, 1, 1, 0, 34, NULL),
+(19, 8, 1, 1, 0, 56, NULL);
 
 -- --------------------------------------------------------
 
@@ -64,6 +68,7 @@ CREATE TABLE IF NOT EXISTS `shares` (
   `sh_id` int(11) NOT NULL AUTO_INCREMENT,
   `sh_symbol` varchar(20) NOT NULL,
   `sh_desc` varchar(50) NOT NULL,
+  `sh_price` float NOT NULL,
   PRIMARY KEY (`sh_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
@@ -71,15 +76,15 @@ CREATE TABLE IF NOT EXISTS `shares` (
 -- Dumping data for table `shares`
 --
 
-INSERT INTO `shares` (`sh_id`, `sh_symbol`, `sh_desc`) VALUES
-(1, 'TFSC', '1347 Capital Corp'),
-(2, 'PIH', '1347 Property Insurance Holdings, Inc'),
-(3, 'FB', 'Facebook, Inc.'),
-(4, 'FCS', 'Fairchild Semiconductor International, Inc.'),
-(5, 'ONEQ', 'Fidelity Nasdaq Composite Index Tracking Stock'),
-(6, 'GSM', 'Ferroglobe PLC'),
-(7, 'MITK', 'Mitek Systems, Inc.'),
-(8, 'MHGC', 'Morgans Hotel Group Co.');
+INSERT INTO `shares` (`sh_id`, `sh_symbol`, `sh_desc`, `sh_price`) VALUES
+(1, 'TFSC', '1347 Capital Corp', 20.5),
+(2, 'PIH', '1347 Property Insurance Holdings, Inc', 0),
+(3, 'FB', 'Facebook, Inc.', 0),
+(4, 'FCS', 'Fairchild Semiconductor International, Inc.', 0),
+(5, 'ONEQ', 'Fidelity Nasdaq Composite Index Tracking Stock', 0),
+(6, 'GSM', 'Ferroglobe PLC', 0),
+(7, 'MITK', 'Mitek Systems, Inc.', 0),
+(8, 'MHGC', 'Morgans Hotel Group Co.', 0);
 
 -- --------------------------------------------------------
 
