@@ -10,8 +10,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>borsa</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-            <link rel="stylesheet" href="css/datepicker.css">
+    <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./resources/css/datepicker.css">
   </head>
   <body
  <form class="form">  

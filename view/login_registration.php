@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>borsa</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-            <link rel="stylesheet" href="css/datepicker.css">
+    <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body
  <form class="form">  
@@ -23,11 +22,11 @@
   <div id="login" class="tab-pane fade in active">
 
 <div class="bs-example ">
-    <form class="form-horizontal col-xs-9" id="f">
+    <form class="form-horizontal col-xs-9" id="f" method="post" action="index.php?do=login">
         <div class="form-group " id="first" >
             <label for="email" class="control-label col-xs-4 " >email</label>
             <div class="col-xs-6">
-                <input type="text" class="form-control" id="email" placeholder="email">
+                <input type="text" class="form-control" name="email" id="email" placeholder="email">
                 <label class="error_email" hidden="true">
                         invalid mail
                         </label>
@@ -36,7 +35,7 @@
         <div class="form-group " id="second">
             <label for="inputPassword" class="control-label col-xs-4">Password</label>
             <div class="col-xs-6">
-                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                <input type="password" class="form-control" name="pass" id="inputPassword" placeholder="Password">
                 <label class="error_passwd" hidden="true">
                        password must be at least 5 digits 
                         </label>
@@ -135,8 +134,8 @@
 </div>
 
 
-<script src="js/jquery.min.js"></script> 
-<script src="js/bootstrap.min.js"></script>
+<script src="./resources/js/jquery.min.js"></script> 
+<script src="./resources/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
     $("#f").submit(function(e){
