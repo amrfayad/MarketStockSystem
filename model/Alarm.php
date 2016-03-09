@@ -11,7 +11,7 @@
  *
  * @author engamrezat
  */
-include_once './Database.php';
+include_once 'Database.php';
 
 class Alarm {
 
@@ -44,7 +44,9 @@ class Alarm {
             if (!$conection) {
                 die('Error: ' . mysqli_connect_error());
             }
-            $query = "select * from alarm where user_id = $user_id ";
+            $query = "select sh_symbol,sh_desc,sh_price,is_enabled,direction,price,last_trigered from alarm as al , shares as sh"
+                    . " where al.user_id = $user_id and al.sh_id=sh.sh_id";
+            //echo $query;
             $result = mysqli_query($conection, $query);
             $alarm = array();
             $i = 0;

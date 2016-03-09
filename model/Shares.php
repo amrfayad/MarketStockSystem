@@ -11,7 +11,7 @@
  *
  * @author engamrezat
  */
-include_once './Database.php';
+include_once 'Database.php';
 ;
 
 class Shares {
@@ -37,9 +37,17 @@ class Shares {
         }
         return -1;
     }
+    public function updatePrice($sh_id,$price) {
+        
+        $conection = Database::connect();
+        $query = "update shares set  sh_price=$price where sh_id=$sh_id";
+        $excute = mysqli_query($conection, $query);
+        return $excute;
+        
+    }
 
 }
 
 //$sh = new Shares();
-
+//$sh->updatePrice(1, 20.5);
 //var_dump($sh->listshares());

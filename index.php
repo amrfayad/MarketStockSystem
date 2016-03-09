@@ -15,20 +15,26 @@ and open the template in the editor.
         if (isset($_REQUEST['do'])) {
             include './controller/' . $_REQUEST['do'] . '.php';
         }
-        if (isset($_SESSION['username'])) {
-            echo '<br>';
-            echo '<a href="./controller/logout.php">';
-            echo 'Log out';
-            echo '</a>';
-            echo'<br>';
-            echo '<br>';
-            echo '<a href="index.php?inc=HomePage">';
-            echo 'Home Page';
-            echo '</a>';
-            echo'<br>';
-        } else {
-            include './view/login_registration.php';
-        }
+        else
+        {
+            if (isset($_SESSION['username'])) {
+                echo '<br>';
+                echo '<a href="./controller/logout.php">';
+                echo 'Log out';
+                echo '</a>';
+                echo'<br>';
+                echo '<br>';
+                echo '<a href="index.php?inc=HomePage">';
+                echo 'Home Page';
+                echo '</a>';
+                echo'<br>';
+            } 
+            else
+             {
+                include './view/login_registration.php';
+            }
+
+         }
 
         if (isset($includes)) {
             for ($j = 0; $j < count($includes); $j++) {
