@@ -64,7 +64,7 @@
 
   <div id="signup" class="tab-pane fade">
 <div class="bs-example ">
-    <form class="form-horizontal col-xs-9" id="x" method="post" action="index.php?do=register">
+    <form class="form-horizontal col-xs-9" id="x"><!-- method="post" action="index.php?do=register">-->
         <div class="form-group " id="one" >
             <label for="name" class="control-label col-xs-4" >name</label>
             <div class="col-xs-6">
@@ -107,22 +107,23 @@
  
         <div class="form-group">
             <div class="col-xs-offset-4 col-xs-9">
-                <button type="submit" class="btn btn-primary">sign up</button>
+                <button type="button" class="btn btn-primary" id="sign_up">sign up</button>
             </div>
         </div>
     </form>
 </div>
-
-
-
-
-
-  </div>
+      <div class="form-group">
+            <div class="col-xs-offset-4 col-xs-9" id="signup_result" >
+                
+            </div>
+        </div>
 </div>
+
 
 
 <script src="./resources/js/jquery.min.js"></script> 
 <script src="./resources/js/bootstrap.min.js"></script>
+<script src="./resources/js/projectFiles/signup_result.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
     $("#f").submit(function(e){
@@ -156,7 +157,7 @@ $(document).ready(function(){
     });
 
 
-$("#x").submit(function(e){
+    $("#remail").click(function(e){
    
         var remail = $("#remail").val();
         var valid =/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
@@ -165,62 +166,45 @@ $("#x").submit(function(e){
             $(".error_remail").show();
             $("#two").addClass("has-error");
 
-            e.preventDefault();
-        }else
-        {
+            //e.preventDefault();
+        }else{
             $(".error_remail").hide();
         }
+    });
+    $("#name").click(function(e){
    
         
-
-
-    var name = $("#name").val();
+        var name = $("#name").val();
         var n = /^[a-zA-Z]+$/;
-        if (!n.test(name)) {
-            
+        if (!n.test(name)) {           
             $(".error_fname").show();
-
            $("#one").addClass("has-error");
-
-            e.preventDefault();
-        }else
-        {
+            //e.preventDefault();
+        }else{
+            $("#one").addClass("has-error");
             $(".error_fname").hide();
         }
-
-
-
-
- var passwd = $("#rePassword").val().length;
-
+    });
+    $("#Password").click(function(e){
+        var passwd = $("#rePassword").val().length;
         if (passwd < 5){
-            $(".error_repassword").show();
-     7
- $("#four").addClass("has-error");
-            e.preventDefault();
-           
-            
+            $(".error_password").show();
+            $("#three").addClass("has-error");
+            //e.preventDefault();
         }else{
             $(".error_repassword").hide();
-       }
-    
-
-
- var p = $("#Password").val().length;
-
+        }
+    });
+    $("#rePassword").click(function(e){   
+        var p = $("#Password").val().length;
         if (p < 5){
-            $(".error_password").show();
-     7
- $("#three").addClass("has-error");
-            e.preventDefault();
-           
-            
+            $(".error_repassword").show();
+            $("#four").addClass("has-error");
+            //e.preventDefault();    
         }else{
             $(".error_password").hide();
-       }
+        }
     });
-
-
 });
 
   
