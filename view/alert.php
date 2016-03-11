@@ -11,17 +11,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>borsa</title>
         <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="./resources/css/datepicker.css">
+        <!--<link rel="stylesheet" href="./resources/css/datepicker.css">-->
     </head>
     <body
         <form class="form">  
             <div class="container-fluid">
-
-
-
-
-
-
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#dashboard">dashboard</a></li>
                     <li><a data-toggle="tab" href="#profile">my profile</a></li>
@@ -34,71 +28,70 @@
                     </div>
                 </div>
 
-
+                
                 <div class="tab-content">
                     <div id="dashboard" class="tab-pane fade in active">
                         <h3>your alerts</h3>
                         <br>
-                        <table class="table table-striped  table-bordered">
-                            <thead>
-
-
-                                <tr>
-                                    <th> </th>
-                                    <th>share</th>
-                                    <th>Last price</th>
-                                    <th>alert</th>
-                                    <th>Last triggle</th>
-                                    <th> </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php for ($i = 0; $i < count($alarms); $i++) { ?>
+                           <table class="table table-striped  table-bordered">
+                                <thead>
                                     <tr>
-                                        <td scope="row">
-                                            <div class="checkbox">
-
-                                                <?php if ($alarms[$i]['is_enabled'] == 1) { ?>
-                                                    <label><input type="checkbox" value="" checked></label>
-                                                <?php } else {
-                                                    ?>
-                                                    <label><input type="checkbox" value="" ></label>
-                                                <?php } ?>
-
-
-
-                                            </div> 
-                                        </td>
-                                        <td><?php echo $alarms[$i]['sh_symbol'] . "  (" . $alarms[$i]['sh_desc'] . ") "; ?></td>
-                                        <td>  <?php echo $alarms[$i]['sh_price']; ?> </td>
-                                        <td>
-    <?php
-    $dir = $alarms[$i]['direction'];
-    $txt = '';
-    if ($dir == 0) {
-        $txt .="Drops Below " . $alarms[$i]['price'];
-    } else {
-        $txt .="Goes Up " . $alarms[$i]['price'];
-    }
-    echo $txt;
-    ?>
-
-                                        </td>
-                                        <td> <?php
-                                            if ($alarms[$i]['last_trigered'] == NULL)
-                                                echo 'Never';
-                                            else
-                                                echo $alarms[$i]['last_trigered'];
-                                            ?> 
-
-
-                                        </td>
-                                        <td> <button class="btn btn-link" role="link" type="submit" name="op" value="Link 2">delete</button></td>
+                                        <th> </th>
+                                        <th>share</th>
+                                        <th>Last price</th>
+                                        <th>alert</th>
+                                        <th>Last triggered</th>
+                                        <th> </th>
                                     </tr>
-                                        <?php } ?>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    <?php for ($i = 0; $i < count($alarms); $i++) { ?>
+                                        <tr>
+                                            <input type="hidden" id="alarm_id" name="alarm_id" value="<?php echo $alarms[$i]['alarm_id'];?>">
+                                            <td scope="row">
+                                                <div class="checkbox">
 
+                                                    <?php if ($alarms[$i]['is_enabled'] == 1) { ?>
+                                                    <label><input type="checkbox" class="checkbx" value="" checked></label>
+                                                    <?php } else {
+                                                        ?>
+                                                        <label><input type="checkbox" class="checkbx" value="" ></label>
+                                                    <?php } ?>
+                                                </div> 
+                                            </td>
+                                            <td><?php echo $alarms[$i]['sh_symbol'] . "  (" . $alarms[$i]['sh_desc'] . ") "; ?></td>
+                                            <td>  <?php echo $alarms[$i]['sh_price']; ?> </td>
+                                            <td>
+                                                <?php
+                                                $dir = $alarms[$i]['direction'];
+                                                $txt = '';
+                                                if ($dir == 0) {
+                                                    $txt .="Drops Below " . $alarms[$i]['price'];
+                                                } else {
+                                                    $txt .="Goes Up " . $alarms[$i]['price'];
+                                                }
+                                                echo $txt;
+                                                ?>
+
+                                            </td>
+                                            <td> <?php
+                                                if ($alarms[$i]['last_trigered'] == NULL)
+                                                    echo 'Never';
+                                                else
+                                                    echo $alarms[$i]['last_trigered'];
+                                                ?> 
+
+
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-link delete" role="link" type="submit"  name="delete" value="Link 2">delete</button>
+                                            </td>
+                                            
+                                        </tr>
+                                            <?php } ?>
+                                </tbody>
+                            </table>
+                        
                         <br><br><br>
                         <h3>add alert</h3>
                         <br>
@@ -111,9 +104,9 @@
                             <div class="col-xs-6">
                                 <select name= "share" class="form-control">
                                     <option>Select Share</option>
-<?php for ($i = 0; $i < count($shares); $i++) { ?>
+                                    <?php for ($i = 0; $i < count($shares); $i++) { ?>
                                         <option value="<?php echo $shares[$i]['sh_id']; ?>"><?php echo $shares[$i]['sh_symbol'] . "  (" . $shares[$i]['sh_desc'] . ") "; ?></option>
-<?php } ?>
+                                    <?php } ?>
                                 </select>
                                 <input type="hidden" name="user_id" value="<?php echo $us['user_id'];?>">
                             </div>
@@ -147,13 +140,6 @@
 
 
                     </div>
-
-
-
-
-
-
-
 
 
 
@@ -241,13 +227,10 @@
 
 
 
-
-
-
-
-
-
                 <script src="./resources/js/jquery.min.js"></script> 
                 <script src="./resources/js/bootstrap.min.js"></script>
+                <script src="./resources/js/projectFiles/deleteAlert.js"></script>
+                <script src="./resources/js/projectFiles/enableAlert.js"></script>
+                
                 </body>
                 </html>

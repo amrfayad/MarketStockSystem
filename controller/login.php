@@ -27,7 +27,7 @@ if (isset($_POST['email']) && isset($_POST['pass'])) {
 
 
     if ($us == NULL) {
-        echo 'Email .found please rgister';
+        echo 'Email not found please register';
     } else {
         if ($us['password'] === $pass) {
             
