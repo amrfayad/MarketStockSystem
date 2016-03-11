@@ -33,7 +33,7 @@
                     <div id="dashboard" class="tab-pane fade in active">
                         <h3>your alerts</h3>
                         <br>
-                           <table class="table table-striped  table-bordered">
+                           <table class="table table-striped  table-bordered" id="alertTable">
                                 <thead>
                                     <tr>
                                         <th> </th>
@@ -48,6 +48,7 @@
                                     <?php for ($i = 0; $i < count($alarms); $i++) { ?>
                                         <tr>
                                             <input type="hidden" id="alarm_id" name="alarm_id" value="<?php echo $alarms[$i]['alarm_id'];?>">
+                                            <input type="hidden" id="alarm_triggered" name="alarm_triggered" value="<?php echo $alarms[$i]['last_trigered'];?>">
                                             <td scope="row">
                                                 <div class="checkbox">
 
@@ -95,48 +96,45 @@
                         <br><br><br>
                         <h3>add alert</h3>
                         <br>
-                        <form method="post" action="index.php?do=addAlarm">
-
-
 
 
 
                             <div class="col-xs-6">
-                                <select name= "share" class="form-control">
+                                <select id="share" name= "share" class="form-control">
                                     <option>Select Share</option>
                                     <?php for ($i = 0; $i < count($shares); $i++) { ?>
-                                        <option value="<?php echo $shares[$i]['sh_id']; ?>"><?php echo $shares[$i]['sh_symbol'] . "  (" . $shares[$i]['sh_desc'] . ") "; ?></option>
+                                    <option value="<?php echo $shares[$i]['sh_price'];?>" id="<?php echo $shares[$i]['sh_id'];?>"><?php echo $shares[$i]['sh_symbol'] . "  (" . $shares[$i]['sh_desc'] . ") "; ?></option>
                                     <?php } ?>
                                 </select>
-                                <input type="hidden" name="user_id" value="<?php echo $us['user_id'];?>">
+                                <input type="hidden" id="user_id" name="user_id" value="<?php echo $us['user_id'];?>">
                             </div>
                             <br><br>
                             <br><br>
                             <div class="col-xs-2">
-                                <label class="radio-inline"><input type="radio" name="optradio" value="0">drops below</label>
+                                <label class="radio-inline"><input type="radio" id="optradio" name="optradio" value="0">drops below</label>
                             </div>
 
                             <div class="col-xs-2">
-                                <label class="radio-inline"><input type="radio" name="optradio" value="1">goes above</label>
+                                <label class="radio-inline"><input type="radio" id="optradio" name="optradio" value="1">goes above</label>
                             </div>
 
                             <div class="col-xs-4">
-                                <input type="number" name="price" step="any">
+                                <input type="number" id="price" name="price" step="any">
                                 <br> <br>
                                 <br> <br>
                                 <div>
                                     <div  class="col-xs-6">
-                                        <button type="submit" class="btn btn-success btn-lg">ok   </button></div>
+                                        <button type="submit" id="ok" class="btn btn-success btn-lg">ok   </button></div>
                                     <div class="col-xs-6">
 
-                                        <button type="reset" class="btn btn-danger btn-lg">cancel</button></div>
+                                        <button type="reset" id="cancel" class="btn btn-danger btn-lg">cancel</button></div>
                                 </div>
 
                             </div>
 
 
 
-                        </form>
+                        
 
 
                     </div>
@@ -231,6 +229,7 @@
                 <script src="./resources/js/bootstrap.min.js"></script>
                 <script src="./resources/js/projectFiles/deleteAlert.js"></script>
                 <script src="./resources/js/projectFiles/enableAlert.js"></script>
+                <script src="./resources/js/projectFiles/addAlert.js"></script>
                 
                 </body>
                 </html>
