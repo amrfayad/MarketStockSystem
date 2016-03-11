@@ -6,7 +6,7 @@ class User {
 
     function add_user($name, $password, $email) {
         $conection = Database::connect();
-        $query = "insert into user (user_name,email,password) " . " values ('$name','$password','$email')";
+        $query = "insert into user (user_name,password,email) " . " values ('$name','$password','$email')";
         $execute = mysqli_query($conection, $query);
         return $execute;
     }
@@ -51,7 +51,7 @@ class User {
     }
 }
 
-$user = new user();
+//$user = new user();
 //$user->add_user("Ahmed", "ahmed@yahoo.com", "1234");
 //$user->update(2, "ali", "567", "aliali@yahoo.com");
 //var_dump($user->search_email("aliali@yahoo.com"));
