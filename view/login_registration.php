@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>borsa</title>
     <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./resources/css/projectFiles/signup.css" rel="stylesheet">
   </head>
   <body
  <form class="form">  
@@ -100,7 +101,7 @@
             <div class="col-xs-6">
                 <input type="password" class="form-control" id="rePassword"  name="reg_repasswd" placeholder="re-Password">
                 <label class="error_repassword" hidden="true">
-                    password must be at least 5 digits 
+                    re-password must match password 
                 </label>
             </div>
         </div>
@@ -156,53 +157,61 @@ $(document).ready(function(){
        }
     });
 
-
-    $("#remail").click(function(e){
+    $("#name").blur(function(e){        
+        var name = $("#name").val();
+        var n = /^[a-zA-Z]+$/;
+        if (!n.test(name)) {           
+           $(".error_fname").show();
+           $("#one").addClass("has-error");
+            //e.preventDefault();
+        }else{
+            $("#one").removeClass("has-error");
+            $("#one").addClass("has-success");
+            $(".error_fname").hide();
+        }
+    });
+    
+    $("#remail").blur(function(e){
    
         var remail = $("#remail").val();
         var valid =/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-        if (!valid.test(remail)) {
-            
+        if (!valid.test(remail)) {            
             $(".error_remail").show();
             $("#two").addClass("has-error");
 
             //e.preventDefault();
         }else{
+            $("#two").removeClass("has-error");            
+            $("#two").addClass("has-success");
             $(".error_remail").hide();
         }
     });
-    $("#name").click(function(e){
-   
-        
-        var name = $("#name").val();
-        var n = /^[a-zA-Z]+$/;
-        if (!n.test(name)) {           
-            $(".error_fname").show();
-           $("#one").addClass("has-error");
-            //e.preventDefault();
-        }else{
-            $("#one").addClass("has-error");
-            $(".error_fname").hide();
-        }
-    });
-    $("#Password").click(function(e){
-        var passwd = $("#rePassword").val().length;
+    
+    var passwd = 0;//$("#Password").val().length;
+    $("#Password").blur(function(e){
+        passwd = $("#Password").val().length;
         if (passwd < 5){
             $(".error_password").show();
             $("#three").addClass("has-error");
             //e.preventDefault();
         }else{
-            $(".error_repassword").hide();
+            $("#three").removeClass("has-error");
+            $("#three").addClass("has-success");
+            $(".error_password").hide();            
         }
     });
-    $("#rePassword").click(function(e){   
-        var p = $("#Password").val().length;
+    
+    var p = 0;
+    $("#rePassword").blur(function(e){
+        p=$("#rePassword").val().length;
         if (p < 5){
             $(".error_repassword").show();
             $("#four").addClass("has-error");
             //e.preventDefault();    
         }else{
-            $(".error_password").hide();
+            $("#four").removeClass("has-error");
+            $("#four").addClass("has-success");
+            $(".error_repassword").hide();
         }
     });
 });
