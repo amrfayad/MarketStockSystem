@@ -47,7 +47,7 @@ class Alarm {
             if (!$conection) {
                 die('Error: ' . mysqli_connect_error());
             }
-            $query = "select al.sh_id , sh.sh_symbol,sh.sh_desc,sh.sh_price,"
+            $query = "select al.alarm_id , al.sh_id , sh.sh_symbol,sh.sh_desc,sh.sh_price,"
                     . "al.is_enabled,al.direction,al.price,al.last_trigered "
                     . "from alarm as al , shares as sh"
                     . " where al.sh_id=sh.sh_id";
@@ -110,6 +110,7 @@ class Alarm {
         $conection = Database::connect();
         $dt = date('Y-m-d');
         $query = "update alarm set  last_trigered='".$dt."' where alarm_id=$alarm_id";
+        echo $query;
         $excute = mysqli_query($conection, $query);
         return $excute;
     }

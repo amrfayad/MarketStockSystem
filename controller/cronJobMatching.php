@@ -6,14 +6,6 @@ include_once '../model/Shares.php';;
 $alarm = new Alarm();
 $allalarms = $alarm->list_all_alarms();
 $today = date('Y-m-d');
-//$s = date('2016-03-10');
-//if($d == $s){echo 'Equal';}else{echo 'Not  Equal';}
-//echo '<br>';
-//echo $d;
-//echo '<br>';
-//echo $s;
-
-//echo date();
 
 for($i=0; $i<count($allalarms); $i++)
 {
@@ -26,7 +18,7 @@ for($i=0; $i<count($allalarms); $i++)
                 if($allalarms[$i]['sh_price'] >= $allalarms[$i]['price'])
                 {
                     echo 'Send Email';
-                    $alarm->update_date($allalarms[$i]['direction']);
+                    $alarm->update_date($allalarms[$i]['alarm_id']);
                     echo '<br>';
                 }
             }
@@ -35,16 +27,10 @@ for($i=0; $i<count($allalarms); $i++)
                 if($allalarms[$i]['sh_price'] <= $allalarms[$i]['price'])
                 {
                     echo 'Send Email';
-                    $alarm->update_date($allalarms[$i]['direction']);
+                    $alarm->update_date($allalarms[$i]['alarm_id']);
                     echo '<br>';
                 }
             }
-
-            //echo 'Trigered Today';
-            //echo '<br>';
-            
-            
-            
         }
     }
 }
