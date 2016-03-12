@@ -21,7 +21,7 @@
         if (!last_trig){
             trig_txt= "Never";
         } else {
-            trig_txt= last_trig+"well";
+            trig_txt= last_trig;
         }
         var setting = {
                 type:"POST",

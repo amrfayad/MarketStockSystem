@@ -37,6 +37,35 @@ class Alarm {
         }
         return -1;
     }
+    public function list_all_alarms()
+    {
+        
+        try {
+            $conection = Database::connect();
+            if (!$conection) {
+                die('Error: ' . mysqli_connect_error());
+            }
+            $query = "select al.user_id,al.alarm_id , al.sh_id , sh.sh_symbol,sh.sh_desc,sh.sh_price,"
+                    . "al.is_enabled,al.direction,al.price,al.last_trigered "
+                    . "from alarm as al , shares as sh"
+                    . " where al.sh_id=sh.sh_id";
+            //echo $query;
+            $result = mysqli_query($conection, $query);
+            $alarm = array();
+            $i = 0;
+            while ($row = mysqli_fetch_assoc($result)) {
+                $alarm[$i] = $row;
+                $i++;
+            }
+            return $alarm;
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+        return -1;
+        
+        
+    }
+    
 
     public function list_alarms($user_id) {
         try {
@@ -101,13 +130,13 @@ class Alarm {
         return -1;
     }
 
-    public function select($alarm_id) {
+        public function select($alarm_id) {
         try {
             $conection = Database::connect();
             if (!$conection) {
                 die('Error: ' . mysqli_connect_error());
             }
-            $query = "select * from alarm where alarm_id =" . $alarm_id ;
+            $query = "select * from alarm where alarm_id ='" . $alarm_id . "'";
             $result = mysqli_query($conection, $query);
             $staff = array();
             $i = 0;
@@ -122,6 +151,7 @@ class Alarm {
         }
         return -1;
     }
+
 
 public function select_last() {
     try {

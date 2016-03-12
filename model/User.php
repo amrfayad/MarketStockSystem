@@ -59,6 +59,26 @@ class User {
         $excute = mysqli_query($conection, $query);
         return $excute;
     }
+    
+    function return_email($us_id)
+    {
+        try{
+        
+        $conection = Database::connect();
+        $query = "SELECT email FROM user where user_id='$us_id'";
+        $excute1 = mysqli_query($conection, $query);
+        $result = $conection->query($query);
+        $row = mysqli_fetch_array($result);
+        return $row;
+        }
+         catch (Exception $e)
+        {
+            echo 'Error';
+          echo $e->getMessage();
+        }
+        return -1;
+      
+    }
 }
 
 //$user = new user();
