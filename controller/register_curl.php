@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-include_once '../model/User.php';
+include_once './model/User.php';
 
 $includes = array();
 if(isset($_POST['user_id']))

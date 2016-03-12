@@ -26,8 +26,10 @@
         var setting = {
                 type:"POST",
                 data: {"user_id":user_id,"sh_id":sh_id,"direction":direction, "price":price} , 
+                //url:"index.php?do=addAlarm",
                 url:"./controller/addAlarm.php",
                 success:function(response){
+                    //alert(response);
                     var js = JSON.parse(response);
                     al_id=JSON.stringify(js[0]['alarm_id']);
                     $("#alertTable").append(

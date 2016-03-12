@@ -1,6 +1,6 @@
 <?php
 
-include_once '../model/Alarm.php';
+include_once './model/Alarm.php';
 $alarm = new Alarm();
 if(isset($_POST['user_id'])  )
 {

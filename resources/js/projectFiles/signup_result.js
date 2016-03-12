@@ -67,7 +67,7 @@
             data: data,
             async:"true",
             success:function(resp){
-                alert(resp);
+                //alert(resp);
                  $("#signup_result").html(
                  "You Registed Successfully :)<br>Now You can Login.");
             },

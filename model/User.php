@@ -79,6 +79,15 @@ class User {
         return -1;
       
     }
+    
+    
+    function add_user_with_id($id,$name, $password, $email) {
+        $conection = Database::connect();
+        $query = "insert into user (user_id,user_name,password,email) " . " values ($id,'$name','$password','$email')";
+        $execute = mysqli_query($conection, $query);
+        return $execute;
+    }
+    
 }
 
 //$user = new user();
