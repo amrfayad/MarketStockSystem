@@ -107,7 +107,7 @@ class Alarm {
             if (!$conection) {
                 die('Error: ' . mysqli_connect_error());
             }
-            $query = "select * from alarm where alarm_id ='" . $alarm_id . "'";
+            $query = "select * from alarm where alarm_id =" . $alarm_id ;
             $result = mysqli_query($conection, $query);
             $staff = array();
             $i = 0;
@@ -122,6 +122,30 @@ class Alarm {
         }
         return -1;
     }
+
+public function select_last() {
+    try {
+            $conection = Database::connect();
+            if (!$conection) {
+                die('Error: ' . mysqli_connect_error());
+            }
+            $query = "select * from alarm order by alarm_id desc limit 1" ;
+            $result = mysqli_query($conection, $query);
+            $staff = array();
+            $i = 0;
+            while ($row = mysqli_fetch_assoc($result))
+            {
+                $staff[$i] = $row;
+                $i++;
+            }
+            return $staff;
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+        return -1;
+
+       
+}
 }
 
 

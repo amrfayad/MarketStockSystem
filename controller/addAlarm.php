@@ -11,6 +11,8 @@ if(isset($_POST['user_id'])  )
     $direction = intval($_POST['direction']);
     $price = $_POST['price'];
     $alarm ->add($sh_id, $user_id, $direction, $price);
+    $data = $alarm->select_last();
+    echo json_encode($data);
 }
 
 

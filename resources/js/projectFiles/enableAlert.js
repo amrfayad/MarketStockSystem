@@ -1,6 +1,6 @@
 (function ($){
     var n,dt;
-    $(".checkbx").change(function (){
+    $(".container-fluid").on("click",".checkbx",function (){
         n= $(this).is(":checked");
         dt = $(this).parent().parent().parent().parent().children("#alarm_id").val();
         var setting = {

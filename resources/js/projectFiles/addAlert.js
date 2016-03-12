@@ -1,6 +1,6 @@
 (function ($){
     
-    var sh_id,user_id,direction,price,last_trig,sh_price,txt,trig_txt;
+    var sh_id,user_id,direction,price,last_trig,sh_price,txt,trig_txt,al_id;
     $("#ok").on("click",function (){
         sh_id = $("#share option:selected").attr("id");
         user_id = $("#user_id").val();
@@ -23,10 +23,12 @@
                 data: {"user_id":user_id,"sh_id":sh_id,"direction":direction, "price":price} , 
                 url:"http://localhost/php-project/MarketStockSystem/controller/addAlarm.php",
                 success:function(response){
-                    alert(response);
+                    var js = JSON.parse(response);
+                    al_id=JSON.stringify(js[0]['alarm_id']);
+                    alert('<input type="hidden" id="alarm_id" name="alarm_id" value='+al_id+'>');
                     $("#alertTable").append(
 '<tr>'+
-    '<input type="hidden" id="alarm_id" name="alarm_id" value="1">'+
+    '<input type="hidden" id="alarm_id" name="alarm_id" value='+al_id+'>'+
     '<td scope="row">'+
         '<div class="checkbox">'+       
             '<label><input type="checkbox" class="checkbx" value="" checked></label>'+
