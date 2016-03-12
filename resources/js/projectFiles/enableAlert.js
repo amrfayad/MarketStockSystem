@@ -6,7 +6,8 @@
         var setting = {
                 type:"POST",
                 data: {"alarm_id":dt,"alarm_flag":n} , 
-                url:"http://localhost/php-project/MarketStockSystem/controller/enable_disable.php",
+               // url:"http://localhost/php-project/MarketStockSystem/controller/enable_disable.php",
+               url:"./controller/enable_disable.php",
                 success:function(response){
                         }  
                     };

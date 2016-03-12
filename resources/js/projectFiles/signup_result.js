@@ -1,5 +1,48 @@
 (function ($){ //"#signup_result"   
     $("#sign_up").click(function (e){
+        var name = $("#name").val();
+        var n = /^[a-zA-Z]+$/;
+        if (!n.test(name)) {           
+           $(".error_fname").show();
+           $("#one").addClass("has-error");
+            //e.preventDefault();
+        }else{
+            $("#one").removeClass("has-error");
+            $("#one").addClass("has-success");
+            $(".error_fname").hide();
+        }
+        var remail = $("#remail").val();
+        var valid =/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        if (!valid.test(remail)) {            
+            $(".error_remail").show();
+            $("#two").addClass("has-error");
+
+            //e.preventDefault();
+        }else{
+            $("#two").removeClass("has-error");            
+            $("#two").addClass("has-success");
+            $(".error_remail").hide();
+        }
+        var passwd = $("#Password").val().length;
+        if (passwd < 5){
+            $(".error_password").show();
+            $("#three").addClass("has-error");
+            //e.preventDefault();
+        }else{
+            $("#three").removeClass("has-error");
+            $("#three").addClass("has-success");
+            $(".error_password").hide();            
+        }
+        var p=$("#rePassword").val().length;
+        if (p < 5){
+            $(".error_repassword").show();
+            $("#four").addClass("has-error");
+            //e.preventDefault();    
+        }else{
+            $("#four").removeClass("has-error");
+            $("#four").addClass("has-success");
+            $(".error_repassword").hide();
+        }
         var url     = "http://localhost/MarketStockSystem/index.php?do=register";
         var data    = {
                 reg_name:$("#name").val(),

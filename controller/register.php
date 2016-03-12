@@ -31,7 +31,12 @@ if (isset($_POST['reg_name']) && isset($_POST['reg_email']) && isset($_POST['reg
                 if($reg_passwd===$reg_repasswd && strlen($reg_passwd)>=5){//if passwd matched 
                     //echo 'all good';
                     if($user_reg->add_user($reg_name, $reg_passwd, $reg_email)){
-                        echo 'new user added to database :)';
+                        $result="You Registed Successfully :)<br>Now You can Login.";
+                        //echo "$result";
+                        $json['result']=$result;
+                        echo json_encode($json);
+                        //echo 'You Registed Successfully :)';
+                        //echo '<br>Now You can Login.';
                     }else{
                         echo 'error in adding user in database.';                        
                     }

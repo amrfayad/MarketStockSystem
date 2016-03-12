@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>borsa</title>
     <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./resources/css/projectFiles/signup.css" rel="stylesheet">
   </head>
   <body
  <form class="form">  

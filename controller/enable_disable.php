@@ -1,6 +1,6 @@
 <?php
-include 'Alarm.php';
-
+//include 'Alarm.php';
+include '../model/Alarm.php';
 if(isset($_POST['alarm_id']))
 {
     $alarm = new Alarm();

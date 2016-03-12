@@ -33,12 +33,21 @@ class User {
 
     function search_email($email)
     {
+        try{
+        
         $conection = Database::connect();
         $query = "SELECT user_id,user_name , password FROM user where email='$email'";
         $excute1 = mysqli_query($conection, $query);
         $result = $conection->query($query);
         $row = mysqli_fetch_array($result);
         return $row;
+        }
+         catch (Exception $e)
+        {
+            echo 'Error';
+          echo $e->getMessage();
+        }
+        return -1;
       
     }
 
