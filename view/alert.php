@@ -171,7 +171,7 @@
 
 
                         <div class="bs-example ">
-                            <form class="form-horizontal" method="post" id="x" >
+                            <form class="form-horizontal">
 
 <!--"index.php?do=updateUser"-->
 
@@ -193,8 +193,8 @@
                                 <div class="form-group " id="third" >
                                     <label for="email" class="control-label col-xs-4" >email</label>
                                     <div class="col-xs-6">
-                                        <input type="text" class="form-control" id="email" placeholder="email" value="<?php echo $email;?>" name="u_email">
-                                        <input type="hidden" class="form-control" id="email" placeholder="email" value="<?php echo $email;?>" name="old_email">
+                                        <input type="text" class="form-control" id="new_email" placeholder="email" value="<?php echo $email;?>" name="u_email">
+                                        <input type="hidden" class="form-control" id="old_email" placeholder="email" value="<?php echo $email;?>" name="old_email">
                                         
                                         <label class="error_email" hidden="true">
                                             email must be like xxxxx@xxxx.com.
@@ -238,7 +238,7 @@
 
                                 <div class="form-group">
                                     <div class="col-xs-offset-4 col-xs-4">
-                                        <button type="submit" class="btn btn-primary">update profile</button>
+                                        <button type="button" class="btn btn-primary" id="update">update profile</button>
                                     </div>
                                 </div>
                             </form>
@@ -256,74 +256,8 @@
                 <script src="./resources/js/projectFiles/deleteAlert.js"></script>
                 <script src="./resources/js/projectFiles/enableAlert.js"></script>
                 <script src="./resources/js/projectFiles/addAlert.js"></script>
-                
-                <script type="text/javascript">
-$(document).ready(function(){
-    $("#x").submit(function(e){
-   
-        var email = $("#email").val();
-        var fvalid = /^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-        if (!fvalid.test(email)) {
-            
-            $(".error_email").show();
-            $("#first").addClass("has-error");
+                <script src="./resources/js/projectFiles/update.js"></script>
+               
 
-            e.preventDefault();
-        }else
-        {
-            $(".error_email").hide();
-        }
-   
-
- var passwd = $("#inputPassword").val().length;
-
-        if (passwd < 5){
-            $(".error_passwd").show();
-     7
- $("#second").addClass("has-error");
-            e.preventDefault();
-           
-            
-        }else{
-            $(".error_passwd").hide();
-       }
-    });
-
-    $("#name").blur(function(e){        
-        var name = $("#name").val();
-        var n = /^[a-zA-Z]+$/;
-        if (!n.test(name)) {           
-           $(".error_fname").show();
-           $("#one").addClass("has-error");
-            //e.preventDefault();
-        }else{
-            $("#one").removeClass("has-error");
-            $("#one").addClass("has-success");
-            $(".error_fname").hide();
-        }
-    });
-    
-   
-    
-    var passwd = 0;//$("#Password").val().length;
-    $("#rePassword").blur(function(e){
-        passwd = $("#rePassword").val().length;
-        if (passwd < 5){
-            $(".error_password").show();
-            $("#fourth").addClass("has-error");
-            //e.preventDefault();
-        }else{
-            $("#fourth").removeClass("has-error");
-            $("#fourth").addClass("has-success");
-            $(".error_password").hide();            
-        }
-    });
-    
- 
-});
-
-  
-
-</script>
                 </body>
                 </html>

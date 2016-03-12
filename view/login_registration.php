@@ -97,7 +97,7 @@
             <div class="col-xs-6">
                 <input type="password" class="form-control" name="pass" id="inputPassword" placeholder="Password">
                 <label class="error_passwd" hidden="true">
-                       password must be at least 5 digits 
+                       password must be at least 8 digits 
                         </label>
             </div>
         </div>
@@ -112,7 +112,7 @@
  
         <div class="form-group">
             <div class="col-xs-offset-4 col-xs-9">
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="btn btn-primary" id="l">Login</button>
             </div>
         </div>
     </form>
@@ -150,7 +150,7 @@
             <div class="col-xs-6">
                 <input type="password" class="form-control" id="Password" name="reg_passwd" placeholder="Password">
                 <label class="error_password" hidden="true">
-                    password must be at least 5 digits 
+                    password must be at least 8 digits 
                 </label>
             </div>
         </div>
@@ -190,99 +190,7 @@
 <script src="./resources/js/jquery.min.js"></script> 
 <script src="./resources/js/bootstrap.min.js"></script>
 <script src="./resources/js/projectFiles/signup_result.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-    $("#f").submit(function(e){
-   
-        var email = $("#email").val();
-        var fvalid = /^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-        if (!fvalid.test(email)) {
-            
-            $(".error_email").show();
-            $("#first").addClass("has-error");
+<script src="./resources/js/projectFiles/login.js"></script>
 
-            e.preventDefault();
-        }else
-        {
-            $(".error_email").hide();
-        }
-   
-
- var passwd = $("#inputPassword").val().length;
-
-        if (passwd < 5){
-            $(".error_passwd").show();
-     7
- $("#second").addClass("has-error");
-            e.preventDefault();
-           
-            
-        }else{
-            $(".error_passwd").hide();
-       }
-    });
-
-    $("#name").blur(function(e){        
-        var name = $("#name").val();
-        var n = /^[a-zA-Z]+$/;
-        if (!n.test(name)) {           
-           $(".error_fname").show();
-           $("#one").addClass("has-error");
-            //e.preventDefault();
-        }else{
-            $("#one").removeClass("has-error");
-            $("#one").addClass("has-success");
-            $(".error_fname").hide();
-        }
-    });
-    
-    $("#remail").blur(function(e){
-   
-        var remail = $("#remail").val();
-        var valid =/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-        if (!valid.test(remail)) {            
-            $(".error_remail").show();
-            $("#two").addClass("has-error");
-
-            //e.preventDefault();
-        }else{
-            $("#two").removeClass("has-error");            
-            $("#two").addClass("has-success");
-            $(".error_remail").hide();
-        }
-    });
-    
-    var passwd = 0;//$("#Password").val().length;
-    $("#Password").blur(function(e){
-        passwd = $("#Password").val().length;
-        if (passwd < 5){
-            $(".error_password").show();
-            $("#three").addClass("has-error");
-            //e.preventDefault();
-        }else{
-            $("#three").removeClass("has-error");
-            $("#three").addClass("has-success");
-            $(".error_password").hide();            
-        }
-    });
-    
-    var p = 0;
-    $("#rePassword").blur(function(e){
-        p=$("#rePassword").val().length;
-        if (p < 5){
-            $(".error_repassword").show();
-            $("#four").addClass("has-error");
-            //e.preventDefault();    
-        }else{
-            $("#four").removeClass("has-error");
-            $("#four").addClass("has-success");
-            $(".error_repassword").hide();
-        }
-    });
-});
-
-  
-
-</script>
   </body>
 </html>

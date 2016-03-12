@@ -26,7 +26,9 @@ if (isset($_POST['email']) && isset($_POST['pass'])) {
 
 
     if ($us == NULL) {
-        echo 'Email not found please register';
+        //unset($_request['do']);
+        //$includes[0] = "login_registration";
+        header('location:./index.php');
     } else {
         if ($us['password'] === $pass) {
             $alarm = new Alarm();
@@ -39,10 +41,10 @@ if (isset($_POST['email']) && isset($_POST['pass'])) {
         } 
         else
             {
-            
+            header('location:./index.php');
         }
     }
 }
  else {
-    echo 'No REquest Send';
+    header('location:./index.php');
 }

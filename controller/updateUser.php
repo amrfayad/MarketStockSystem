@@ -7,7 +7,7 @@
  */
 
 include_once './model/User.php';
-
+var_dump($_POST);
 if(isset($_POST['u_name'])&&isset($_POST['u_email']))
 {
   
@@ -32,7 +32,7 @@ if(isset($_POST['u_name'])&&isset($_POST['u_email']))
         {
 
             $update_user->update($u_data['user_id'] , $new_name , $new_pass , $new_email);
-
+            echo "Updated ";
         }
         else
         {
