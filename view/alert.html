@@ -2,17 +2,9 @@
 <html lang="en">
     <head>
         <style type="text/css">
-       
-        #icon
-           {
-          font-size:50px;
+            #icon {
+                font-size:50px;
             }
-        th 
-            {
-            background-color:  #4682B4;
-            color: white;
-            }
-
         </style>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,13 +16,6 @@
     <body
         <form class="form">  
             <div class="container-fluid">
-
-
-
-
-
-
-
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#dashboard">dashboard</a></li>
                     <li><a data-toggle="tab" href="#profile">my profile</a></li>
@@ -43,22 +28,12 @@
                     </div>
                 </div>
 
-              <br>  
-
-
-<div class="col-lg-12">
-   <div class="col-lg-3"> </div>
-   <div class="col-lg-6">
-      <img src="x.jpg" alt="Chania" id="b" class="img-circle img-responsive">
-</div>
-    </div>
-
+                
                 <div class="tab-content">
-                    <div id="dashboard" class="tab-pane fade in active " >
-                        <h3   style="font-family:verdana; color:#4682B4;" >your alerts</h3>
+                    <div id="dashboard" class="tab-pane fade in active">
+                        <h3>your alerts</h3>
                         <br>
-                        <div class= " row table-responsive">
-                           <table class="table table-striped  table-bordered table-hover  col-sm-12 ">
+                           <table class="table table-striped  table-bordered">
                                 <thead>
                                     <tr>
                                         <th> </th>
@@ -71,7 +46,7 @@
                                 </thead>
                                 <tbody>
                                     <?php for ($i = 0; $i < count($alarms); $i++) { ?>
-                                        <tr class="info">
+                                        <tr>
                                             <input type="hidden" id="alarm_id" name="alarm_id" value="<?php echo $alarms[$i]['alarm_id'];?>">
                                             <td scope="row">
                                                 <div class="checkbox">
@@ -116,11 +91,11 @@
                                             <?php } ?>
                                 </tbody>
                             </table>
-                        </div>
+                        
                         <br><br><br>
-                        <h3  style="font-family:verdana; color:#4682B4;">Add Alert</h3>
+                        <h3>add alert</h3>
                         <br>
-                        <form method="post" action="index.php?do=addAlarm" id="update">
+                        <form method="post" action="index.php?do=addAlarm">
 
 
 
@@ -138,11 +113,11 @@
                             <br><br>
                             <br><br>
                             <div class="col-xs-2">
-                                <label class="radio-inline"  style="font-family:verdana; color:#4682B4;"><input type="radio" name="optradio" value="0" >drops below</label>
+                                <label class="radio-inline"><input type="radio" name="optradio" value="0">drops below</label>
                             </div>
 
                             <div class="col-xs-2">
-                                <label class="radio-inline"  style="font-family:verdana; color:#4682B4;"><input type="radio" name="optradio" value="1">goes above</label>
+                                <label class="radio-inline"><input type="radio" name="optradio" value="1">goes above</label>
                             </div>
 
                             <div class="col-xs-4">
@@ -169,14 +144,14 @@
 
 
                     <div id="profile" class="tab-pane fade">
-                        <h3  style="font-family:verdana; color:#4682B4;">your profile</h3>
+                        <h3>your profile</h3>
 
 
 
                         <div class="bs-example ">
-                            <form class="form-horizontal" method="post" id="x" >
+                            <form class="form-horizontal">
 
-<!--"index.php?do=updateUser"-->
+
 
 
 
@@ -184,7 +159,7 @@
                                 <div class="form-group " id="first" >
                                     <label for="name" class="control-label col-xs-4" >name</label>
                                     <div class="col-xs-6">
-                                        <input type="text" class="form-control" id="name" placeholder="name" value="<?php echo $us['user_name'];?>" name="u_name">
+                                        <input type="text" class="form-control" id="name" placeholder="name">
                                         <label class="error_fname" hidden="true">
                                             name must be Letters only.
                                         </label>
@@ -196,11 +171,9 @@
                                 <div class="form-group " id="third" >
                                     <label for="email" class="control-label col-xs-4" >email</label>
                                     <div class="col-xs-6">
-                                        <input type="text" class="form-control" id="email" placeholder="email" value="<?php echo $email;?>" name="u_email">
-                                        <input type="hidden" class="form-control" id="email" placeholder="email" value="<?php echo $email;?>" name="old_email">
-                                        
+                                        <input type="text" class="form-control" id="email" placeholder="email">
                                         <label class="error_email" hidden="true">
-                                            email must be like xxxxx@xxxx.com.
+                                            email must be Letters only.
                                         </label>
                                     </div>
                                 </div>
@@ -210,7 +183,7 @@
 
                                 <div class="form-group" id="old">
                                     <div class="col-xs-7">
-                                        <label class="control-label col-xs-6"  style="font-family:verdana; color:#4682B4;">change password ?</label>
+                                        <label class="control-label col-xs-6">change password ?</label>
                                     </div>
 
                                 </div>
@@ -218,11 +191,11 @@
 
 
                                 <div class="form-group " id="second">
-                                    <label for="inputPassword" class="control-label col-xs-4">new Password</label>
+                                    <label for="inputPassword" class="control-label col-xs-4">old-Password</label>
                                     <div class="col-xs-6">
-                                        <input type="password" class="form-control" id="inputPassword" placeholder="Password"name="u_password">
+                                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
                                         <label class="error_passwd" hidden="true">
-                                            password must be at least 8 digits 
+                                            password must be at least 5 digits 
                                         </label>
                                     </div>
                                 </div>
@@ -230,11 +203,11 @@
 
 
                                 <div class="form-group " id="fourth">
-                                    <label for="rePassword" class="control-label col-xs-4">re-Password</label>
+                                    <label for="rePassword" class="control-label col-xs-4">new-Password</label>
                                     <div class="col-xs-6">
-                                        <input type="password" class="form-control" id="rePassword" placeholder="re-Password" name="u_rpassword">
-                                        <label class="error_password" hidden="true">
-                                            password must be at least 8 digits 
+                                        <input type="password" class="form-control" id="rePassword" placeholder="re-Password">
+                                        <label class="error_passwd" hidden="true">
+                                            password must be at least 5 digits 
                                         </label>
                                     </div>
                                 </div>
@@ -254,77 +227,10 @@
 
 
 
-                <script src="./resources/js/jquery.min.js"></script> 
-                <script src="./resources/js/bootstrap.min.js"></script>
+                <script src="js/jquery.min.js"></script> 
+                <script src="js/bootstrap.min.js"></script>
                 <script src="./resources/js/projectFiles/deleteAlert.js"></script>
                 <script src="./resources/js/projectFiles/enableAlert.js"></script>
-                <script type="text/javascript">
-$(document).ready(function(){
-    $("#x").submit(function(e){
-   
-        var email = $("#email").val();
-        var fvalid = /^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-        if (!fvalid.test(email)) {
-            
-            $(".error_email").show();
-            $("#first").addClass("has-error");
-
-            e.preventDefault();
-        }else
-        {
-            $(".error_email").hide();
-        }
-   
-
- var passwd = $("#inputPassword").val().length;
-
-        if (passwd < 5){
-            $(".error_passwd").show();
-     7
- $("#second").addClass("has-error");
-            e.preventDefault();
-           
-            
-        }else{
-            $(".error_passwd").hide();
-       }
-    });
-
-    $("#name").blur(function(e){        
-        var name = $("#name").val();
-        var n = /^[a-zA-Z]+$/;
-        if (!n.test(name)) {           
-           $(".error_fname").show();
-           $("#one").addClass("has-error");
-            //e.preventDefault();
-        }else{
-            $("#one").removeClass("has-error");
-            $("#one").addClass("has-success");
-            $(".error_fname").hide();
-        }
-    });
-    
-   
-    
-    var passwd = 0;//$("#Password").val().length;
-    $("#rePassword").blur(function(e){
-        passwd = $("#rePassword").val().length;
-        if (passwd < 5){
-            $(".error_password").show();
-            $("#fourth").addClass("has-error");
-            //e.preventDefault();
-        }else{
-            $("#fourth").removeClass("has-error");
-            $("#fourth").addClass("has-success");
-            $(".error_password").hide();            
-        }
-    });
-    
- 
-});
-
-  
-
-</script>
+                
                 </body>
                 </html>
