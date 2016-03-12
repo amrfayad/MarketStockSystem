@@ -197,7 +197,7 @@
                                         <input type="hidden" class="form-control" id="old_email" placeholder="email" value="<?php echo $email;?>" name="old_email">
                                         
                                         <label class="error_email" hidden="true">
-                                            email must be like xxxxx@xxxx.com.
+                                            email must be like xxxxx@xxxx.com
                                         </label>
                                     </div>
                                 </div>

@@ -1,6 +1,7 @@
 (function ($){   
     $("#update").click(function (e){
          var name = $("#name").val();
+         var f;
         var n = /^[a-zA-Z]+$/;
         if (!n.test(name)) {           
            $(".error_fname").show();
@@ -10,15 +11,17 @@
             $("#first").removeClass("has-error");
             $("#first").addClass("has-success");
             $(".error_fname").hide();
+            f=1;
         }
-        var email = $("#email").val();
-        var valid =/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        var email = $("#new_email").val();
+        var valid =/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if (!valid.test(email)) {            
             $(".error_email").show();
             $("#third").addClass("has-error");
-
-            //e.preventDefault();
+              f=0;
+          
         }else{
+           
             $("#third").removeClass("has-error");            
             $("#third").addClass("has-success");
             $(".error_email").hide();
@@ -46,7 +49,7 @@
             $(".error_password").hide();
         }
 
-        if(p1===p2){
+        if(p1===p2 && f===1){
         var url     = "./index.php?do=updateUser";
         var data    = {
                 u_name:$("#name").val(),
