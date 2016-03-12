@@ -29,7 +29,6 @@ if (isset($_POST['email']) && isset($_POST['pass'])) {
         echo 'Email not found please register';
     } else {
         if ($us['password'] === $pass) {
-            echo 'Passwor match';
             $alarm = new Alarm();
             $share = new Shares();
             $shares = $share->listshares();
