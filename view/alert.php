@@ -174,7 +174,7 @@
 
 
                         <div class="bs-example ">
-                            <form class="form-horizontal" method="post" action="index.php?do=updateUser" >
+                            <form class="form-horizontal" method="post" id="x" >
 
 <!--"index.php?do=updateUser"-->
 
@@ -200,7 +200,7 @@
                                         <input type="hidden" class="form-control" id="email" placeholder="email" value="<?php echo $email;?>" name="old_email">
                                         
                                         <label class="error_email" hidden="true">
-                                            email must be Letters only.
+                                            email must be like xxxxx@xxxx.com.
                                         </label>
                                     </div>
                                 </div>
@@ -222,7 +222,7 @@
                                     <div class="col-xs-6">
                                         <input type="password" class="form-control" id="inputPassword" placeholder="Password"name="u_password">
                                         <label class="error_passwd" hidden="true">
-                                            password must be at least 5 digits 
+                                            password must be at least 8 digits 
                                         </label>
                                     </div>
                                 </div>
@@ -233,8 +233,8 @@
                                     <label for="rePassword" class="control-label col-xs-4">re-Password</label>
                                     <div class="col-xs-6">
                                         <input type="password" class="form-control" id="rePassword" placeholder="re-Password" name="u_rpassword">
-                                        <label class="error_passwd" hidden="true">
-                                            password must be at least 5 digits 
+                                        <label class="error_password" hidden="true">
+                                            password must be at least 8 digits 
                                         </label>
                                     </div>
                                 </div>
@@ -260,7 +260,7 @@
                 <script src="./resources/js/projectFiles/enableAlert.js"></script>
                 <script type="text/javascript">
 $(document).ready(function(){
-    $("#f").submit(function(e){
+    $("#x").submit(function(e){
    
         var email = $("#email").val();
         var fvalid = /^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
@@ -304,49 +304,23 @@ $(document).ready(function(){
         }
     });
     
-    $("#remail").blur(function(e){
    
-        var remail = $("#remail").val();
-        var valid =/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-        if (!valid.test(remail)) {            
-            $(".error_remail").show();
-            $("#two").addClass("has-error");
-
-            //e.preventDefault();
-        }else{
-            $("#two").removeClass("has-error");            
-            $("#two").addClass("has-success");
-            $(".error_remail").hide();
-        }
-    });
     
     var passwd = 0;//$("#Password").val().length;
-    $("#Password").blur(function(e){
-        passwd = $("#Password").val().length;
-        if (passwd < 8){
+    $("#rePassword").blur(function(e){
+        passwd = $("#rePassword").val().length;
+        if (passwd < 5){
             $(".error_password").show();
-            $("#three").addClass("has-error");
+            $("#fourth").addClass("has-error");
             //e.preventDefault();
         }else{
-            $("#three").removeClass("has-error");
-            $("#three").addClass("has-success");
+            $("#fourth").removeClass("has-error");
+            $("#fourth").addClass("has-success");
             $(".error_password").hide();            
         }
     });
     
-    var p = 0;
-    $("#rePassword").blur(function(e){
-        p=$("#rePassword").val().length;
-        if (p < 8){
-            $(".error_repassword").show();
-            $("#four").addClass("has-error");
-            //e.preventDefault();    
-        }else{
-            $("#four").removeClass("has-error");
-            $("#four").addClass("has-success");
-            $(".error_repassword").hide();
-        }
-    });
+ 
 });
 
   
