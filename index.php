@@ -19,13 +19,14 @@ and open the template in the editor.
         else
         {
             if (isset($_SESSION['username'])) {
+                
                 echo '<br>';
                 echo '<a href="./controller/logout.php">';
                 echo 'Log out';
                 echo '</a>';
                 echo'<br>';
                 echo '<br>';
-                echo '<a href="index.php?inc=HomePage">';
+                echo '<a href="index.php?do=login">';
                 echo 'Home Page';
                 echo '</a>';
                 echo'<br>';
@@ -36,8 +37,7 @@ and open the template in the editor.
             }
 
          }
-
-        if (isset($includes)) {
+         if (isset($includes)) {
             for ($j = 0; $j < count($includes); $j++) {
                 include './view/' . $includes[$j] . '.php';
             }
