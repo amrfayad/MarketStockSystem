@@ -124,63 +124,50 @@
 
   <div id="signup" class="tab-pane fade">
 <div class="bs-example ">
-    <form class="form-horizontal col-xs-9" id="x">
-
-
-
-
-
-
+    <form class="form-horizontal col-xs-9" id="x"><!-- method="post" action="index.php?do=register">-->
         <div class="form-group " id="one" >
             <label for="name" class="control-label col-xs-4" >name</label>
             <div class="col-xs-6">
-                <input type="text" class="form-control" id="name" placeholder="name">
+                <input type="text" class="form-control" id="name" name="reg_name" placeholder="name">
                 <label class="error_fname" hidden="true">
                         name must be Letters only.
-                        </label>
+                </label>
             </div>
         </div>
-
-
-
-  <div class="form-group " id="two" >
+        
+        <div class="form-group " id="two" >
             <label for="remail" class="control-label col-xs-4" >email</label>
             <div class="col-xs-6">
-                <input type="text" class="form-control" id="remail" placeholder="email">
+                <input type="text" class="form-control" id="remail" name="reg_email" placeholder="email">
                 <label class="error_remail" hidden="true">
-                        email must be Letters only.
-                        </label>
+                    Invalid Email.
+                </label>
             </div>
         </div>
-
-
-
 
         <div class="form-group " id="three">
             <label for="Password" class="control-label col-xs-4">Password</label>
             <div class="col-xs-6">
-                <input type="password" class="form-control" id="Password" placeholder="Password">
+                <input type="password" class="form-control" id="Password" name="reg_passwd" placeholder="Password">
                 <label class="error_password" hidden="true">
-                       password must be at least 5 digits 
-                        </label>
+                    password must be at least 5 digits 
+                </label>
             </div>
         </div>
 
-
-
-   <div class="form-group " id="four">
+        <div class="form-group " id="four">
             <label for="rePassword" class="control-label col-xs-4">re-Password</label>
             <div class="col-xs-6">
-                <input type="password" class="form-control" id="rePassword" placeholder="re-Password">
+                <input type="password" class="form-control" id="rePassword"  name="reg_repasswd" placeholder="re-Password">
                 <label class="error_repassword" hidden="true">
-                       password must be at least 5 digits 
-                        </label>
+                    re-password must match password 
+                </label>
             </div>
         </div>
  
         <div class="form-group">
             <div class="col-xs-offset-4 col-xs-9">
-                <button type="submit" class="btn btn-primary">sign up</button>
+                <button type="button" class="btn btn-primary" id="sign_up">sign up</button>
             </div>
         </div>
     </form>
@@ -189,16 +176,20 @@
 
 
 
-
   </div>
 
+      <div class="form-group">
+            <div class="col-xs-offset-4 col-xs-9" id="signup_result" >
+                
+            </div>
+        </div>
 </div>
-
 
 
 
 <script src="./resources/js/jquery.min.js"></script> 
 <script src="./resources/js/bootstrap.min.js"></script>
+<script src="./resources/js/projectFiles/signup_result.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
     $("#f").submit(function(e){
@@ -231,72 +222,63 @@ $(document).ready(function(){
        }
     });
 
-
-$("#x").submit(function(e){
+    $("#name").blur(function(e){        
+        var name = $("#name").val();
+        var n = /^[a-zA-Z]+$/;
+        if (!n.test(name)) {           
+           $(".error_fname").show();
+           $("#one").addClass("has-error");
+            //e.preventDefault();
+        }else{
+            $("#one").removeClass("has-error");
+            $("#one").addClass("has-success");
+            $(".error_fname").hide();
+        }
+    });
+    
+    $("#remail").blur(function(e){
    
         var remail = $("#remail").val();
         var valid =/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-        if (!valid.test(remail)) {
-            
+        if (!valid.test(remail)) {            
             $(".error_remail").show();
             $("#two").addClass("has-error");
 
-            e.preventDefault();
-        }else
-        {
+            //e.preventDefault();
+        }else{
+            $("#two").removeClass("has-error");            
+            $("#two").addClass("has-success");
             $(".error_remail").hide();
         }
-   
-        
-
-
-    var name = $("#name").val();
-        var n = /^[a-zA-Z]+$/;
-        if (!n.test(name)) {
-            
-            $(".error_fname").show();
-
-           $("#one").addClass("has-error");
-
-            e.preventDefault();
-        }else
-        {
-            $(".error_fname").hide();
-        }
-
-
-
-
- var passwd = $("#rePassword").val().length;
-
-        if (passwd < 5){
-            $(".error_repassword").show();
-     7
- $("#four").addClass("has-error");
-            e.preventDefault();
-           
-            
-        }else{
-            $(".error_repassword").hide();
-       }
-    
-
-
- var p = $("#Password").val().length;
-
-        if (p < 5){
-            $(".error_password").show();
-     7
- $("#three").addClass("has-error");
-            e.preventDefault();
-           
-            
-        }else{
-            $(".error_password").hide();
-       }
     });
-
-
+    
+    var passwd = 0;//$("#Password").val().length;
+    $("#Password").blur(function(e){
+        passwd = $("#Password").val().length;
+        if (passwd < 5){
+            $(".error_password").show();
+            $("#three").addClass("has-error");
+            //e.preventDefault();
+        }else{
+            $("#three").removeClass("has-error");
+            $("#three").addClass("has-success");
+            $(".error_password").hide();            
+        }
+    });
+    
+    var p = 0;
+    $("#rePassword").blur(function(e){
+        p=$("#rePassword").val().length;
+        if (p < 5){
+            $(".error_repassword").show();
+            $("#four").addClass("has-error");
+            //e.preventDefault();    
+        }else{
+            $("#four").removeClass("has-error");
+            $("#four").addClass("has-success");
+            $(".error_repassword").hide();
+        }
+    });
 });
 
   

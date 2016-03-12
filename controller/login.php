@@ -17,8 +17,7 @@ $includes = array();
 
 
 if (isset($_POST['email']) && isset($_POST['pass'])) {
-
-
+    
     $email = $_POST['email'];
     $pass = $_POST['pass'];
 
@@ -30,19 +29,12 @@ if (isset($_POST['email']) && isset($_POST['pass'])) {
         echo 'Email not found please register';
     } else {
         if ($us['password'] === $pass) {
-            
             $alarm = new Alarm();
             $share = new Shares();
-            
             $shares = $share->listshares();
-            
-            
             $alarms = $alarm->list_alarms($us['user_id']);
             //var_dump($alarms);
             $includes[0] = "alert";
-            
-            
-            
             
         } 
         else
@@ -50,4 +42,7 @@ if (isset($_POST['email']) && isset($_POST['pass'])) {
             
         }
     }
+}
+ else {
+    echo 'No REquest Send';
 }

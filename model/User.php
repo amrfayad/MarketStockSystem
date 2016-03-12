@@ -6,7 +6,7 @@ class User {
 
     function add_user($name, $password, $email) {
         $conection = Database::connect();
-        $query = "insert into user (user_name,email,password) " . " values ('$name','$password','$email')";
+        $query = "insert into user (user_name,password,email) " . " values ('$name','$password','$email')";
         $execute = mysqli_query($conection, $query);
         return $execute;
     }
@@ -33,12 +33,21 @@ class User {
 
     function search_email($email)
     {
+        try{
+        
         $conection = Database::connect();
         $query = "SELECT user_id,user_name , password FROM user where email='$email'";
         $excute1 = mysqli_query($conection, $query);
         $result = $conection->query($query);
         $row = mysqli_fetch_array($result);
         return $row;
+        }
+         catch (Exception $e)
+        {
+            echo 'Error';
+          echo $e->getMessage();
+        }
+        return -1;
       
     }
     
@@ -52,7 +61,7 @@ class User {
     }
 }
 
-$user = new user();
+//$user = new user();
 //$user->add_user("Ahmed", "ahmed@yahoo.com", "1234");
 //$user->update(2, "ali", "567", "aliali@yahoo.com");
 //var_dump($user->search_email("aliali@yahoo.com"));

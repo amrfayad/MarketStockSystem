@@ -45,7 +45,7 @@ class Alarm {
                 die('Error: ' . mysqli_connect_error());
             }
             $query = "select sh_symbol,sh_desc,sh_price,alarm_id,is_enabled,direction,price,last_trigered from alarm as al , shares as sh"
-                    . " where al.user_id = $user_id and al.sh_id=sh.sh_id";
+                    . " where al.user_id = $user_id and al.sh_id=sh.sh_id ORDER BY al.alarm_id" ;
             //echo $query;
             $result = mysqli_query($conection, $query);
             $alarm = array();
