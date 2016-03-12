@@ -1,7 +1,8 @@
 <?php
+include_once '../model/Alarm.php';
 if(isset($_POST['alarm_id']))
 {
-include_once 'Alarm.php';
+
 
 $alarm = new Alarm();
 $alarm_id = $_POST['alarm_id'];

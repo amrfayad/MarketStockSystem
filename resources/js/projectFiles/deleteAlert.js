@@ -8,7 +8,7 @@
             var setting = {
                     type:"POST",
                     data: {"alarm_id":n} , 
-                    url:"http://localhost/php-project/MarketStockSystem/controller/deleteAlarm.php",
+                    url:"./controller/deleteAlarm.php",
                     success:function(response){
                             }  
                         };

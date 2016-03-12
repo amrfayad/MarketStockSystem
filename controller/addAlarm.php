@@ -1,8 +1,10 @@
 <?php
 
-include_once 'Alarm.php';
+include_once '../model/Alarm.php';
+//include_once '../model/Alarm.php';
 
-
+//var_dump($_POST);
+//die();
 $alarm = new Alarm();
 if(isset($_POST['user_id'])  )
 {
@@ -13,6 +15,9 @@ if(isset($_POST['user_id'])  )
     $alarm ->add($sh_id, $user_id, $direction, $price);
     $data = $alarm->select_last();
     echo json_encode($data);
+}
+ else {
+    echo 'Test';
 }
 
 
