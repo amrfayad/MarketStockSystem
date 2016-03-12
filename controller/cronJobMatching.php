@@ -23,7 +23,7 @@ for($i=0; $i<count($allalarms); $i++)
                     echo $user_email['email'];
                     mail($user_email['email'], "borsa notification","your Alert is gone above the limited value ");
                     $alarm->update_date($allalarms[$i]['alarm_id']);
-                    echo 'message sent';
+                    echo 'message was sent';
                     echo '<br>';
                 }
             }
@@ -36,7 +36,7 @@ for($i=0; $i<count($allalarms); $i++)
                     echo $user_email['email'];
                     mail($user_email['email'], "borsa notification","your Alert is gone down the limited value ");
                     $alarm->update_date($allalarms[$i]['alarm_id']);
-                    echo 'message  was sent';
+                    echo 'message was sent';
                     echo '<br>';
                 }
             }
