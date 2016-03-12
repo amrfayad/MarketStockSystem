@@ -41,6 +41,7 @@ class User {
         return $row;
       
     }
+    
 
     function update($id, $new_name, $new_password, $new_email) {
         $conection = Database::connect();
