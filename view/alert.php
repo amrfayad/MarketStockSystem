@@ -197,6 +197,8 @@
                                     <label for="email" class="control-label col-xs-4" >email</label>
                                     <div class="col-xs-6">
                                         <input type="text" class="form-control" id="email" placeholder="email" value="<?php echo $email;?>" name="u_email">
+                                        <input type="hidden" class="form-control" id="email" placeholder="email" value="<?php echo $email;?>" name="old_email">
+                                        
                                         <label class="error_email" hidden="true">
                                             email must be Letters only.
                                         </label>
