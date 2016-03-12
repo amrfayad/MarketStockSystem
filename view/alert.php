@@ -39,7 +39,7 @@
                 <div class="form-group ">
 
                     <div class=" pull-right btn-sm RbtnMargin">
-                        <button type="submit" class="btn btn-primary">sign out</button>
+                        <a href="index.php?do=logout">Log out</a>
                     </div>
                 </div>
 

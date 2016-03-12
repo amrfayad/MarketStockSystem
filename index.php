@@ -13,17 +13,21 @@ and open the template in the editor.
     <body>
         <?php
         session_start();
-       // session_destroy();
+        // session_destroy();
         if (isset($_REQUEST['do'])) {
             include './controller/' . $_REQUEST['do'] . '.php';
-        }
-        else
-        {
-                include './view/login_registration.php';
-            
+        } else {
+            if (isset($_SESSION['user_name']))
+                {
+                    include './controller/login.php';
+                } 
+            else 
+            {
 
-         }
-         if (isset($includes)) {
+                include './view/login_registration.php';
+            }
+        }
+        if (isset($includes)) {
             for ($j = 0; $j < count($includes); $j++) {
                 include './view/' . $includes[$j] . '.php';
             }
