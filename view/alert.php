@@ -144,11 +144,11 @@
                             </div>
                             <br><br>
                             <br><br>
-                            <div class="col-xs-2">
+                            <div class="col-xs-12 col-sm-2">
                                 <label class="radio-inline"  style="font-family:verdana; color:#4682B4;"><input type="radio" class="optradio" name="optradio" value="0" >drops below</label>
                             </div>
 
-                            <div class="col-xs-2">
+                            <div class="col-xs-12 col-sm-2">
                                 <label class="radio-inline"  style="font-family:verdana; color:#4682B4;"><input type="radio" class="optradio" name="optradio" value="1">goes above</label>
                             </div>
 
@@ -157,9 +157,9 @@
                                 <br> <br>
                                 <br> <br>
                                 <div>
-                                    <div  class="col-xs-6">
+                                    <div  class="col-xs-12 col-sm-4">
                                         <button type="submit" class="btn btn-success btn-lg" id="ok">ok   </button></div>
-                                    <div class="col-xs-6">
+                                    <div class="col-xs-12 col-sm-4">
 
                                         <button type="reset" class="btn btn-danger btn-lg" id="cancel">cancel</button></div>
                                 </div>
@@ -180,7 +180,7 @@
                    <div class="col-lg-12">
    <div class="col-lg-3"> </div>
    <div class="col-lg-8">
-      <img src="o.jpeg" alt="Chania" id="b" class="img-thumbnail img-responsive" height="700" width="800">
+      <img src="o.jpeg" alt="Chania" id="b" class="img-thumbnail img-responsive" height="700" width="700">
  <br>  <br> 
 </div>
     </div>
