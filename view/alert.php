@@ -2,7 +2,13 @@
 <html lang="en">
     <head>
         <style type="text/css">
-       
+       body
+       {
+
+       background-color: black;
+       }
+     
+ 
         #icon
            {
           font-size:50px;
@@ -21,40 +27,42 @@
         <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
         <!--<link rel="stylesheet" href="./resources/css/datepicker.css">-->
     </head>
-    <body
+    <body >
         <form class="form">  
             <div class="container-fluid">
-
-
-
-
-
 
 
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#dashboard">dashboard</a></li>
                     <li><a data-toggle="tab" href="#profile">my profile</a></li>
+                     <div class=" pull-right btn-sm RbtnMargin">
+                        <a href="index.php?do=logout" style="font-size: 25px">Log out</a>
+                    </div>
                 </ul>
 
                 <div class="form-group ">
 
-                    <div class=" pull-right btn-sm RbtnMargin">
-                        <a href="index.php?do=logout">Log out</a>
-                    </div>
+                   
                 </div>
 
               <br>  
 
-
+<!--
 <div class="col-lg-12">
    <div class="col-lg-3"> </div>
    <div class="col-lg-6">
       <img src="x.jpg" alt="Chania" id="b" class="img-circle img-responsive">
 </div>
     </div>
-
+-->
                 <div class="tab-content">
                     <div id="dashboard" class="tab-pane fade in active " >
+  <div class="col-lg-12">
+   <div class="col-lg-3"> </div>
+   <div class="col-lg-6">
+      <img src="x.jpg" alt="Chania" id="b" class="img-circle img-responsive">
+</div>
+    </div>
                         <h3   style="font-family:verdana; color:#4682B4;" >your alerts</h3>
                         <br>
                         <div class= " row table-responsive">
@@ -160,7 +168,7 @@
 
 
 
-
+</form>
                     </div>
 
 
@@ -168,13 +176,20 @@
                     <div id="profile" class="tab-pane fade">
                         <h3  style="font-family:verdana; color:#4682B4;">your profile</h3>
 
-
+<br>
+                   <div class="col-lg-12">
+   <div class="col-lg-3"> </div>
+   <div class="col-lg-8">
+      <img src="o.jpeg" alt="Chania" id="b" class="img-thumbnail img-responsive" height="700" width="800">
+ <br>  <br> 
+</div>
+    </div>
+    <div>
+    </div>
+    <br>  <br>   <br>  <br> 
 
                         <div class="bs-example ">
                             <form class="form-horizontal">
-
-<!--"index.php?do=updateUser"-->
-
 
 
 
@@ -207,7 +222,7 @@
 
                                 <div class="form-group" id="old">
                                     <div class="col-xs-7">
-                                        <label class="control-label col-xs-6"  style="font-family:verdana; color:#4682B4;">change password ?</label>
+                                        <label class="control-label col-xs-8"  style="font-family:verdana; color:#4682B4;">change password ?</label>
                                     </div>
 
                                 </div>
@@ -249,7 +264,7 @@
 
                 </div>
 
-
+</div>
 
                 <script src="./resources/js/jquery.min.js"></script> 
                 <script src="./resources/js/bootstrap.min.js"></script>

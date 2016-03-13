@@ -69,5 +69,9 @@
             //false:
         });
         }
+        else
+        {
+            alert("two passwords are not matched or email not valid");
+        }
     });
 })(jQuery);
